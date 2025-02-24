@@ -1,0 +1,11 @@
+services:
+  node:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:3000
+    volumes:
+      - ..:/workspace:cached
+    ports:
+      - 3000:3000
