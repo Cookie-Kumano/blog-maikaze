@@ -1,5 +1,5 @@
-import { getAll } from "@/app/utils/getAll";
-import { PostData } from "./types/Post";
+import { getAll } from "@/utils/getAll";
+import { PostData } from "../types/Post";
 import Link from "next/link";
 
 const Page = async () => {

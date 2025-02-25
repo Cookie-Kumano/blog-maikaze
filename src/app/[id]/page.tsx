@@ -1,6 +1,6 @@
 import { DIRECTORY } from "@/constants/generals";
 import path from "path";
-import { getPostBody } from "../utils/getPostBody";
+import { getPostBody } from "../../utils/getPostBody";
 import { notFound } from "next/navigation";
 
 const Page = async({ params }: { params: { id: string } }) => {

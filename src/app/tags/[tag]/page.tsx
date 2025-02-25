@@ -1,4 +1,4 @@
-import { getAll } from "../../utils/getAll"
+import { getAll } from "../../../utils/getAll"
 
 /**
  * タグ一覧を抽出し、ユニークなページとして生成する
