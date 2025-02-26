@@ -1,6 +1,6 @@
 {
   "name": "blog-maikaze",
-  "dockerComposeFile": "docker-compose.yml",
+  "dockerComposeFile": "compose.yaml",
   "service": "node",
   "workspaceFolder": "/workspace",
   "customizations": {

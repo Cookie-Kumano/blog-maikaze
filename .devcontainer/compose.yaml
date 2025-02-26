@@ -3,6 +3,7 @@ services:
     build:
       context: ..
       dockerfile: Dockerfile
+    command: pnpm dev
     environment:
       NEXT_PUBLIC_API_URL: http://localhost:3000
     volumes:

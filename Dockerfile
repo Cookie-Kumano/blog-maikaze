@@ -9,5 +9,3 @@ COPY package.json ./
 RUN pnpm install
 
 COPY . .
-
-CMD ["pnpm", "dev"]
