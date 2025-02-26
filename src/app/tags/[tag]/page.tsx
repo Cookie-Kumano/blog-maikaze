@@ -1,21 +1,25 @@
-import { getAll } from "../../../utils/getAll"
+import { getAll } from "../../../utils/getAll";
 
-/**
- * タグ一覧を抽出し、ユニークなページとして生成する
- * @returns tag
- */
-export const generateStaticParams = async() => {
+// 指定されていないパスのレンダリングを無効にする
+export const dynamicParams = false;
+
+// 静的ルートを定義
+export const generateStaticParams: () => Promise<
+  { tag: string }[]
+> = async () => {
   const posts = await getAll();
 
-  const tags = new Set(posts.flatMap(post => post.metadata.tags));
-  return Array.from(tags).map(tag => ({tag}));
-}
+  const tags = posts.flatMap((post) => post.metadata.tags);
+  return tags.map((tag) => ({ tag }));
+};
 
-const Page = async ({ params }: { params: {tag: string} }) => {
-  const { tag } = params;
+const Page = async ({ params }: { params: Promise<{ tag: string }> }) => {
+  const { tag } = await params;
   const posts = await getAll();
 
-  const filteredPosts = posts.filter((post) => post.metadata.tags.includes(tag));
+  const filteredPosts = posts.filter((post) =>
+    post.metadata.tags.includes(tag)
+  );
 
   // TODO: コンポーネント化したい
   return (
@@ -37,6 +41,6 @@ const Page = async ({ params }: { params: {tag: string} }) => {
       </ul>
     </div>
   );
-}
+};
 
 export default Page;
