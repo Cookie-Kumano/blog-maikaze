@@ -1,0 +1,30 @@
+$screenWidth00: 1200px;
+$screenWidth01: 800px;
+$screenWidth02: 600px;
+$screenWidth03: 95vw;
+
+$bP00: 1200px;
+$bP01: 820px;
+$bP02: 620px;
+$bP03: 360px;
+
+@mixin mq00 {
+  @media screen and (min-width: $bP01) and (max-width: calc($bP00 - 0.2px)) {
+    @content;
+  }
+}
+@mixin mq01 {
+  @media screen and (min-width: $bP02) and (max-width: calc($bP01 - 0.2px)) {
+    @content;
+  }
+}
+@mixin mq02 {
+  @media screen and (max-width: calc($bP02 - 0.2px)) {
+    @content;
+  }
+}
+@mixin mq03 {
+  @media screen and (max-width: $bP03) {
+    @content;
+  }
+}

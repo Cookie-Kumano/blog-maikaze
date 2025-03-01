@@ -2,6 +2,7 @@ import path from "path";
 import { getPostBody } from "../../utils/getPostBody";
 import { getAll } from "@/utils/getAll";
 import { DIRECTORY } from "@/constants/generals";
+import Card from "@/components/Card";
 
 // 指定されていないパスのレンダリングを無効にする
 export const dynamicParams = false;
@@ -19,11 +20,13 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const post = await getPostBody(path.join(DIRECTORY, slug, "index.md"));
 
   return (
-    <article>
-      <h1>{post.metadata.title}</h1>
-      <p>{post.metadata.description}</p>
-      <div dangerouslySetInnerHTML={{ __html: post.contentHtml }}></div>
-    </article>
+    <Card>
+      <article>
+        <h1>{post.metadata.title}</h1>
+        <p>{post.metadata.description}</p>
+        <div dangerouslySetInnerHTML={{ __html: post.contentHtml }}></div>
+      </article>
+    </Card>
   );
 };
 
