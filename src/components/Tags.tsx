@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "@/styles/Tags.module.scss";
+import styles from "@/styles/modules/Tags.module.scss";
 
 type Props = {
   tags?: string[]

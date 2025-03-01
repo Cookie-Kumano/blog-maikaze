@@ -2,7 +2,7 @@ import { PostData } from "@/types/Post";
 import Link from "next/link";
 import React from "react";
 import Card from "./Card";
-import styles from "@/styles/PostList.module.scss";
+import styles from "@/styles/modules/PostList.module.scss";
 import Tags from "./Tags";
 
 type Props = {
