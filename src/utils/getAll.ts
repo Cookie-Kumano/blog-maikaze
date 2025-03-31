@@ -5,14 +5,17 @@ import { getMetadata } from "./getMetadata";
 import { PostData } from "../types/Post";
 import { DIRECTORY } from "@/constants/generals";
 
-export const getAll = async ():Promise<PostData[]> => {
+export const getAll = async (): Promise<PostData[]> => {
   const postDirs = fs.readdirSync(DIRECTORY);
 
-  const posts =  await Promise.all(postDirs.map((dir) => {
+  const posts = await Promise.all(
+    postDirs.map((dir) => {
       const fullPath = path.join(DIRECTORY, dir, "index.md");
-      return getMetadata(fullPath)
-    })
+      return getMetadata(fullPath);
+    }),
   );
 
-  return posts.sort((a, b) => b.metadata.date.getTime() - a.metadata.date.getTime());
-}
+  return posts.sort(
+    (a, b) => b.metadata.date.getTime() - a.metadata.date.getTime(),
+  );
+};

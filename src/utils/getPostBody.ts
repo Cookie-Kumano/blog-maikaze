@@ -7,9 +7,7 @@ import { PostBody } from "../types/Post";
 import { parseMetadata } from "./parseMetadata";
 
 export const getPostBody = async (filePath: string): Promise<PostBody> => {
-
-  if (!fs.existsSync(filePath))
-    throw new Error(`not found: ${filePath}`)
+  if (!fs.existsSync(filePath)) throw new Error(`not found: ${filePath}`);
 
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(fileContent);
