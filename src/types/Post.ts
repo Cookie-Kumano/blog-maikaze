@@ -8,10 +8,10 @@ export type PostMetadata = {
 export type PostData = {
   slug: string;
   metadata: PostMetadata;
-}
+};
 
 export type PostBody = {
   slug: string;
   contentHtml: string;
   metadata: PostMetadata;
-}
+};

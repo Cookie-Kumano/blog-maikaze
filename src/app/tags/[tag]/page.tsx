@@ -19,12 +19,10 @@ const Page = async ({ params }: { params: Promise<{ tag: string }> }) => {
   const posts = await getAll();
 
   const filteredPosts = posts.filter((post) =>
-    post.metadata.tags.includes(tag)
+    post.metadata.tags.includes(tag),
   );
 
-  return (
-    <PostList tag={tag} posts={filteredPosts} />
-  );
+  return <PostList tag={tag} posts={filteredPosts} />;
 };
 
 export default Page;

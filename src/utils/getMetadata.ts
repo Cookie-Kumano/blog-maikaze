@@ -14,4 +14,4 @@ export const getMetadata = async (filePath: string): Promise<PostData> => {
     slug: path.basename(path.dirname(filePath)),
     metadata,
   };
-}
+};
